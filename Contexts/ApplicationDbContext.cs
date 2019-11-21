@@ -17,6 +17,5 @@ namespace Library.API.Contexts
             : base(options)
         {
         }
-
     }
 }
