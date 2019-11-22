@@ -35,7 +35,7 @@ namespace Library.API.Controllers
 
         [HttpGet("{authorId}")]
         public async Task<ActionResult<Author>> GetAuthor(
-            Guid authorId)
+            int authorId)
         {
             var authorFromRepo = await _authorsRepository.GetAuthorAsync(authorId);
             if (authorFromRepo == null)
@@ -48,7 +48,7 @@ namespace Library.API.Controllers
 
         [HttpPut("{authorId}")]
         public async Task<ActionResult<Author>> UpdateAuthor(
-            Guid authorId,
+            int authorId,
             AuthorForUpdate authorForUpdate)
         {
             var authorFromRepo = await _authorsRepository.GetAuthorAsync(authorId);
@@ -69,7 +69,7 @@ namespace Library.API.Controllers
 
         [HttpPatch("{authorId}")]
         public async Task<ActionResult<Author>> UpdateAuthor(
-            Guid authorId,
+            int authorId,
             JsonPatchDocument<AuthorForUpdate> patchDocument)
         {
             var authorFromRepo = await _authorsRepository.GetAuthorAsync(authorId);

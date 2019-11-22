@@ -7,8 +7,9 @@ namespace Library.API.Entities
     [Table("Books")]
     public class Book
     {
-        [Key]
-        public Guid Id { get; set; }
+        [Key()]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(150)]

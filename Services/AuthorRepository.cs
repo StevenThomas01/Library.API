@@ -20,7 +20,7 @@ namespace Library.API.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> AuthorExistsAsync(Guid authorId)
+        public async Task<bool> AuthorExistsAsync(int authorId)
         {
             return await _context.Authors.AnyAsync(a => a.Id == authorId);
         }
@@ -30,9 +30,9 @@ namespace Library.API.Services
             return await _context.Authors.ToListAsync();
         }
 
-        public async Task<Author> GetAuthorAsync(Guid authorId)
+        public async Task<Author> GetAuthorAsync(int authorId)
         {
-            if (authorId == Guid.Empty)
+            if (authorId <= 0)
             {
                 throw new ArgumentException(nameof(authorId));
             }

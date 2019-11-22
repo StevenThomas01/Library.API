@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191121214619_InitialModel")]
-    partial class InitialModel
+    [Migration("20191122001413_InitialModel2")]
+    partial class InitialModel2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,8 +23,9 @@ namespace Library.API.Migrations
 
             modelBuilder.Entity("Library.API.Entities.Author", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -41,12 +42,15 @@ namespace Library.API.Migrations
 
             modelBuilder.Entity("Library.API.Entities.Book", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("AmountOfPages");
 
                     b.Property<Guid>("AuthorId");
+
+                    b.Property<int?>("AuthorId1");
 
                     b.Property<string>("Description")
                         .HasMaxLength(2500);
@@ -57,7 +61,7 @@ namespace Library.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex("AuthorId1");
 
                     b.ToTable("Books");
                 });
@@ -66,8 +70,7 @@ namespace Library.API.Migrations
                 {
                     b.HasOne("Library.API.Entities.Author", "Author")
                         .WithMany("Books")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("AuthorId1");
                 });
 #pragma warning restore 612, 618
         }

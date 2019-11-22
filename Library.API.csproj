@@ -5,6 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191121214619_InitialModel.cs" />
+    <Compile Remove="Migrations\20191121214619_InitialModel.Designer.cs" />
+    <Compile Remove="Migrations\20191121232610_SeedAuthors.cs" />
+    <Compile Remove="Migrations\20191121232610_SeedAuthors.Designer.cs" />
+    <Compile Remove="Migrations\20191121235326_ChangeGuidToInt.cs" />
+    <Compile Remove="Migrations\20191121235326_ChangeGuidToInt.Designer.cs" />
+    <Compile Remove="Migrations\20191122000059_AddAutoIncrementInIds.cs" />
+    <Compile Remove="Migrations\20191122000059_AddAutoIncrementInIds.Designer.cs" />
+    <Compile Remove="Migrations\20191122001001_SeedAuthors2.cs" />
+    <Compile Remove="Migrations\20191122001001_SeedAuthors2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

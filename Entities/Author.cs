@@ -10,7 +10,8 @@ namespace Library.API.Entities
     public class Author
     {
         [Key]
-        public Guid Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(150)]
